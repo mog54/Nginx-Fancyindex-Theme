@@ -23,110 +23,14 @@ A standard config looks something like this (use `-light` for the default light 
 fancyindex on;
 fancyindex_localtime on;
 fancyindex_exact_size off;
-# Specify the path to the header.html and foother.html files, that are server-wise,
-# ie served from root of the website. Remove the leading '/' otherwise.
-fancyindex_header "/Nginx-Fancyindex-Theme-light/header.html";
-fancyindex_footer "/Nginx-Fancyindex-Theme-light/footer.html";
-# Ignored files will not show up in the directory listing, but will still be public.
-fancyindex_ignore "examplefile.html";
-# Making sure folder where these files are do not show up in the listing.
-fancyindex_ignore "Nginx-Fancyindex-Theme-light";
-# Maximum file name length in bytes, change as you like.
+fancyindex_header "/Nginx-Fancyindex-Theme-dark/header.html";
+fancyindex_footer "/Nginx-Fancyindex-Theme-dark/footer.html";
+fancyindex_ignore "examplefile.html"; # Ignored files will not show up in the directory listing, but will still be public. 
+fancyindex_ignore "Nginx-Fancyindex-Theme-dark"; # Making sure folder where files are don't show up in the listing. 
 # Warning: if you use an old version of ngx-fancyindex, comment the last line if you
 # encounter a bug. See https://github.com/Naereen/Nginx-Fancyindex-Theme/issues/10
-fancyindex_name_length 255;
+#fancyindex_name_length 255; # Maximum file name length in bytes, change as you like.
 ```
-
-If you want to conserve a few more bytes in network transmissions enable gzip on the served assets.
-
-```bash
-# Enable gzip compression.
-  gzip on;
-
-  # Compression level (1-9).
-  # 5 is a perfect compromise between size and CPU usage, offering about
-  # 75% reduction for most ASCII files (almost identical to level 9).
-  gzip_comp_level    5;
-
-  # Don't compress anything that's already small and unlikely to shrink much
-  # if at all (the default is 20 bytes, which is bad as that usually leads to
-  # larger files after gzipping).
-  gzip_min_length    256;
-
-  # Compress data even for clients that are connecting to us via proxies,
-  # identified by the "Via" header (required for CloudFront).
-  gzip_proxied       any;
-
-  # Tell proxies to cache both the gzipped and regular version of a resource
-  # whenever the client's Accept-Encoding capabilities header varies;
-  # Avoids the issue where a non-gzip capable client (which is extremely rare
-  # today) would display gibberish if their proxy gave them the gzipped version.
-  gzip_vary          on;
-
-  # Compress all output labeled with one of the following MIME-types.
-  gzip_types
-    application/atom+xml
-    application/javascript
-    application/json
-    application/ld+json
-    application/manifest+json
-    application/rss+xml
-    application/vnd.geo+json
-    application/vnd.ms-fontobject
-    application/x-font-ttf
-    application/x-web-app-manifest+json
-    application/xhtml+xml
-    application/xml
-    font/opentype
-    image/bmp
-    image/svg+xml
-    image/x-icon
-    text/cache-manifest
-    text/css
-    text/plain
-    text/vcard
-    text/vnd.rim.location.xloc
-    text/vtt
-    text/x-component
-    text/x-cross-domain-policy;
-  # text/html is always compressed by gzip module
-
-  # This should be turned on if you are going to have pre-compressed copies (.gz) of
-  # static files available. If not it should be left off as it will cause extra I/O
-  # for the check. It is best if you enable this in a location{} block for
-  # a specific directory, or on an individual server{} level.
-  # gzip_static on;
-```
-
-> Reference: [H5BP Nginx Server Config](https://github.com/h5bp/server-configs-nginx/blob/master/nginx.conf)
-
-## Examples
-### Showing a list of files (without search):
-![Demo #2](screenshots/Nginx-Fancyindex-Theme__example2.png "Example of Nginx-Fancyindex-Theme")
-
----
-
-### Filter a list of files (with search):
-![Demo #1](screenshots/Nginx-Fancyindex-Theme__example1.png "Example of Nginx-Fancyindex-Theme")
-
----
-
-### Filter a list of directories (with search):
-![Demo #3](screenshots/Nginx-Fancyindex-Theme__example3.png "Example of Nginx-Fancyindex-Theme")
-
----
-
-### Filter a list of directories (with search) -- Dark theme:
-It also shows the automatic inclusion of `HEADER.md` file and `README.md` file.
-
-![Demo #4](screenshots/Nginx-Fancyindex-Theme__example4.png "Example of Nginx-Fancyindex-Theme-dark")
-
-### Include `HEADER` and `README` files automatically:
-Another demo:
-
-![Demo #6](screenshots/Nginx-Fancyindex-Theme__example6.png "Example of Nginx-Fancyindex-Theme-light")
-
----
 
 ### :scroll: License ? [![GitHub license](https://img.shields.io/github/license/Naereen/Nginx-Fancyindex-Theme.svg)](https://github.com/Naereen/Nginx-Fancyindex-Theme/blob/master/LICENSE)
 [MIT Licensed](https://lbesson.mit-license.org/) (file [LICENSE](LICENSE)).
