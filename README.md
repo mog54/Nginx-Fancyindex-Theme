@@ -9,7 +9,7 @@ The fancyindex module can be found [here](https://github.com/aperezdc/ngx-fancyi
 
 Clone the repository
 
-    git clone https://github.com/mog54/Nginx-Fancyindex-Theme.git
+    git clone https://github.com/mog54/Nginx-Fancyindex-Theme.git && cp Nginx-Fancyindex-Theme/fancyindex.conf /etc/nginx/sites-enabled/ && cp Nginx-Fancyindex-Theme/Nginx-Fancyindex-Theme-dark/ /home/ruto/torrents/
 
 
 ## Usage
