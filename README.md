@@ -6,6 +6,12 @@ The fancyindex module can be found [here](https://github.com/aperezdc/ngx-fancyi
 
 [![made-for-nginx](https://img.shields.io/badge/Made%20for-nginx-1f425f.svg)](https://www.nginx.org/)
 
+
+Clone the repository
+
+    git clone https://github.com/mog54/Nginx-Fancyindex-Theme.git
+
+
 ## Usage
 
 1. Make sure you have the fancyindex module compiled with nginx, either by compiling it yourself or installing nginx via the full distribution (paquet `nginx-extras`).
